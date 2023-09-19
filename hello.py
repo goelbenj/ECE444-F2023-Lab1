@@ -22,11 +22,12 @@ moment = Moment(app)
 def index():
     form = NameForm()
     if form.validate_on_submit():
-        old_name = session.get('name')
-        if old_name is not None and old_name != form.name.data:
-            flash('Looks like you have changed your name!')
-        session['name'] = form.name.data
-        session['email'] = form.email.data
+        for field in ('name', 'email'):
+            old_field = session.get(field)
+            new_field = getattr(form, field).data
+            if old_field is not None and old_field != new_field:
+                flash(f'Looks like you have changed your {field}!')
+            session[field] = new_field
         return redirect(url_for('index'))
     return render_template('index.html', form=form, name=session.get('name'),
                            email=session.get('email'))
