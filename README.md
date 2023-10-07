@@ -9,3 +9,6 @@ See that the default branch is now `lab3`
 ![screenshot of docker version](./activity2_version.png)
 ## Activity 3
 ![screenshot of updated home page](./activity3_screenshot.png)
+## Activity 4
+![screenshot of docker ps logs](./activity4_screenshot.png)
+![screenshot of running application from container](./activity4_docker.png)
